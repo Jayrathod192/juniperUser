@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.juniperuser">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logobg"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data android:name="com.facebook.accountkit.ApplicationName"
+            android:value="@string/app_name" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/FACEBOOK_APP_ID" />
+        <meta-data android:name="com.facebook.accountkit.ClientToken"
+            android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
+
+        <activity
+            android:name="com.facebook.accountkit.ui.AccountKitActivity" />
+
+        <activity android:name=".UserMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAh2Lln5RcamQSUmZ54ixXif-VIr2KhXS8" />
+
+        <meta-data android:name="AA_MODELS" android:value="com.juniperuser.Model.Engineer"/>
+
+
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme" />
+
+        <service android:name=".Service.MyFirebaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Service.MyFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".CallEngineer"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".Paypal"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".PaymentDetails"
+            android:parentActivityName=".Paypal" />
+        <activity
+            android:name=".SearchEngineer"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".CustomSearch"
+            android:parentActivityName=".Home"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".EngineerDeatilsActivity"
+            android:parentActivityName=".CustomSearch" />
+        <activity
+            android:name=".EngineerListActivity"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:parentActivityName=".Home"
+            />
+        <activity android:name=".EngineeraFirebaseDetails"
+            android:theme="@style/Theme.AppCompat.Light" ></activity>
+    </application>
+
+</manifest>
